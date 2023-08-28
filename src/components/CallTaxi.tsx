@@ -12,9 +12,9 @@ export default function CallTaxi() {
       <Box sx={{ width: "250px" }}>
         <div className="border border-black p-2 flex">
           <Taxi
-            nameCar="Chevrolet Lacetti"
-            colorCar="синий"
-            numberCar="E234КУ"
+            nameCar="Toyota Camry"
+            colorCar="черный"
+            numberCar="К777УУ"
           />
         </div>
       </Box>

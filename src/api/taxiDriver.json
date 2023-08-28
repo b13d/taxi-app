@@ -1,0 +1,56 @@
+[
+  {
+    "code": 0,
+    "descr": "OK",
+    "data": {
+      "crews_info": {
+        "crew_id": 1,
+        "car_mark": "Chevrolet",
+        "car_model": "Lacetti",
+        "car_color": "синий",
+        "car_number": "Е234КУ",
+        "driver_name": "Деточкин",
+        "driver_phone": "7788",
+        "lat": 0,
+        "lon": 0,
+        "distance": 300
+      }
+    }
+  },
+  {
+    "code": 1,
+    "descr": "OK",
+    "data": {
+      "crews_info": {
+        "crew_id": 2,
+        "car_mark": "Hyundai",
+        "car_model": "Solaris",
+        "car_color": "белый",
+        "car_number": "Ф567АС",
+        "driver_name": "Петров",
+        "driver_phone": "8899",
+        "lat": 0,
+        "lon": 0,
+        "distance": 200
+      }
+    }
+  },
+  {
+    "code": 2,
+    "descr": "OK",
+    "data": {
+      "crews_info": {
+        "crew_id": 3,
+        "car_mark": "Toyota",
+        "car_model": "Camry",
+        "car_color": "черный",
+        "car_number": "К777УУ",
+        "driver_name": "Тимур",
+        "driver_phone": "1234",
+        "lat": 0,
+        "lon": 0,
+        "distance": 100
+      }
+    }
+  }
+]
