@@ -164,6 +164,7 @@ export default function Home() {
     }
   }, [inputSearch]);
 
+
   return (
     <Container maxWidth="md" className="pt-2">
       <motion.h1
@@ -197,7 +198,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 60 }}
                 transition={{ duration: 0.3 }}
                 exit={{ opacity: 0, y: -50 }}
-                className="text-[red] border border-[red] absolute bottom-0 right-[20%] rounded-md px-3 py-2 w-fit"
+                className="text-[red] border border-[red] max-md:bottom-12 md:absolute relative max-md:m-auto md:bottom-0 md:right-[20%] rounded-md px-3 py-2 w-fit"
               >
                 {errorMessage}
               </motion.h1>
@@ -213,6 +214,7 @@ export default function Home() {
           findAddressProps={findAddress}
           latProps={lat}
           lonProps={lon}
+          setFindAddressProps={setFindAddress}
         />
         <motion.div
           initial={{ opacity: 0, y: 100 }}
@@ -223,7 +225,7 @@ export default function Home() {
           <Button
             ref={refButton}
             onClick={() => handleClickOrder()}
-            className="w-[300px]"
+            className="w-[300px] max-md:w-full mb-4"
             color="success"
             variant="outlined"
           >

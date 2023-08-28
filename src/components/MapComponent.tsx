@@ -13,6 +13,7 @@ interface PropsMapComponent {
   findAddressProps: boolean;
   latProps: number[];
   lonProps: number[];
+  setFindAddressProps: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface ResultRequest {
@@ -38,6 +39,7 @@ export default function MapComponent({
   findAddressProps,
   latProps,
   lonProps,
+  setFindAddressProps,
 }: PropsMapComponent) {
   const [coordinats, setCoordinats] = useState<number[]>([55.751574, 37.43856]);
 
@@ -57,22 +59,27 @@ export default function MapComponent({
           data.response.GeoObjectCollection.featureMember[0].GeoObject.name
         );
       });
+
+    setFindAddressProps(false);
   };
 
   useEffect(() => {
-    console.log("Обновление координат в useEffect");
+    // Обновление координат в useEffect
 
     setCoordinats(coodinatsProps);
   }, [coodinatsProps]);
 
   return (
-    <Box sx={{ display: "flex", height: "500px", gap: 2 }}>
+    <Box
+      className="max-md:flex-col-reverse max-md:w-full max-md:items-center md:h-[500px] overflow-hidden"
+      sx={{ display: "flex", gap: 2 }}
+    >
       <YMaps query={{ apikey: "af0b612c-3347-499e-8a03-56e935f7da01" }}>
         <motion.div
           initial={{ opacity: 0, x: -100, y: 50 }}
           animate={{ opacity: 1, x: 0, y: 0 }}
           transition={{ duration: 0.3 }}
-          className=" w-[65%]"
+          className="md:w-[65%]"
         >
           <Map
             onClick={(e: any) => handleClickMap(e)}
@@ -84,7 +91,10 @@ export default function MapComponent({
               <>
                 <Placemark
                   options={{ iconColor: "green" }}
-                  geometry={[coordinats[0] + latProps[0], coordinats[1] + lonProps[0]]}
+                  geometry={[
+                    coordinats[0] + latProps[0],
+                    coordinats[1] + lonProps[0],
+                  ]}
                   defaultGeometry={[
                     coordinats[0] + latProps[0],
                     coordinats[1] + lonProps[0],
@@ -92,7 +102,10 @@ export default function MapComponent({
                 />
                 <Placemark
                   options={{ iconColor: "green" }}
-                  geometry={[coordinats[0] - latProps[1], coordinats[1] - lonProps[1]]}
+                  geometry={[
+                    coordinats[0] - latProps[1],
+                    coordinats[1] - lonProps[1],
+                  ]}
                   defaultGeometry={[
                     coordinats[0] - latProps[1],
                     coordinats[1] - lonProps[1],
@@ -100,7 +113,10 @@ export default function MapComponent({
                 />
                 <Placemark
                   options={{ iconColor: "green" }}
-                  geometry={[coordinats[0] + latProps[2], coordinats[1] - lonProps[2]]}
+                  geometry={[
+                    coordinats[0] + latProps[2],
+                    coordinats[1] - lonProps[2],
+                  ]}
                   defaultGeometry={[
                     coordinats[0] + 0.023,
                     coordinats[1] - 0.02,
@@ -120,7 +136,7 @@ export default function MapComponent({
         initial={{ opacity: 0, x: 100, y: 50 }}
         animate={{ opacity: 1, x: 0, y: 0 }}
         transition={{ duration: 0.3 }}
-        className=" w-[35%]  h-full"
+        className="md:w-[35%]  h-full"
       >
         <div className="border-b p-2 flex  justify-between">
           <Taxi nameCar="Toyota Camry" colorCar="черный" distance={100} />
