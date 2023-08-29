@@ -71,7 +71,7 @@ export default function MapComponent({
 
   return (
     <Box
-      className="max-md:flex-col-reverse max-md:w-full max-md:items-center md:h-[500px] overflow-hidden"
+      className="mt-10 justify-center max-md:flex-col-reverse max-md:w-full max-md:items-center md:h-[500px] overflow-hidden"
       sx={{ display: "flex", gap: 2 }}
     >
       <YMaps query={{ apikey: "af0b612c-3347-499e-8a03-56e935f7da01" }}>
@@ -132,22 +132,24 @@ export default function MapComponent({
           </Map>
         </motion.div>
       </YMaps>
-      <motion.aside
-        initial={{ opacity: 0, x: 100, y: 50 }}
-        animate={{ opacity: 1, x: 0, y: 0 }}
-        transition={{ duration: 0.3 }}
-        className="md:w-[35%]  h-full"
-      >
-        <div className="border-b p-2 flex  justify-between">
-          <Taxi nameCar="Toyota Camry" colorCar="черный" distance={100} />
-        </div>
-        <div className="border-b p-2 flex  justify-between">
-          <Taxi nameCar="Hyundai Solaris" colorCar="белый" distance={200} />
-        </div>
-        <div className="border-b p-2 flex justify-between">
-          <Taxi nameCar="Chevrolet Lacetti" colorCar="синий" distance={300} />
-        </div>
-      </motion.aside>
+      {findAddressProps && (
+        <motion.aside
+          initial={{ opacity: 0, x: 100, y: 50 }}
+          animate={{ opacity: 1, x: 0, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="md:w-[35%]  h-full"
+        >
+          <div className="border-b p-2 flex  justify-between">
+            <Taxi nameCar="Toyota Camry" colorCar="черный" distance={100} />
+          </div>
+          <div className="border-b p-2 flex  justify-between">
+            <Taxi nameCar="Hyundai Solaris" colorCar="белый" distance={200} />
+          </div>
+          <div className="border-b p-2 flex justify-between">
+            <Taxi nameCar="Chevrolet Lacetti" colorCar="синий" distance={300} />
+          </div>
+        </motion.aside>
+      )}
     </Box>
   );
 }
